@@ -9,7 +9,16 @@ def encoder(password):
     return encoded_password
 
 
-# Put decoder funtion here
+# Decode function by David Visbal Gomez
+def decode(passcode):
+    new_passcode = ""
+    for character in passcode:
+        if ord(character) - 3 >= 48:
+            new_passcode += chr(ord(character) - 3)
+        else:
+            new_passcode += chr(ord(character) + 7)
+    return new_passcode
+
 
 # Main function
 def main():
@@ -28,8 +37,8 @@ def main():
             print("Your password has been encoded and stored!")
         # If option == 2, decode encoded passwords
         elif option == 2:
-            pass
             # Put decoder output here
+            print(f"The encoded password is {encoded_password}, and the original password is {decode(encoded_password)}")
         # Else, exit loop
         else:
             break
